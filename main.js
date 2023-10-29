@@ -27,7 +27,7 @@ function init() {
 
     // 使用 GLTFLoader 加載模型
     const loader = new THREE.GLTFLoader();
-    loader.load('https://cdn.glitch.global/a6278515-94c6-4213-9280-e53c4ee3fa94/dog.glb?v=1698611546203', function(gltf) {
+    loader.load('https://github.com/yushienyang/puzzle/raw/main/dog.glb', function(gltf) {
         model = gltf.scene;
         scene.add(model);
     });
