@@ -4,19 +4,19 @@ init();
 animate();
 
 function init() {
-    // Scene
+    // 建立場景
     scene = new THREE.Scene();
 
-    // Camera
+    // 設定攝像機
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
 
-    // Renderer
+    // 設定渲染器
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // Resize listener
+    // 設定螢幕大小調整的監聽器
     window.addEventListener('resize', function() {
         let width = window.innerWidth;
         let height = window.innerHeight;
@@ -25,14 +25,14 @@ function init() {
         camera.updateProjectionMatrix();
     });
 
-    // Load 3D model
+    // 使用 GLTFLoader 加載模型
     const loader = new THREE.GLTFLoader();
-    loader.load('https://github.com/yushienyang/puzzle/raw/main/dog.glb', function(gltf) {
+    loader.load('https://cdn.glitch.global/a6278515-94c6-4213-9280-e53c4ee3fa94/dog.glb?v=1698611546203', function(gltf) {
         model = gltf.scene;
         scene.add(model);
     });
 
-    // Add lights
+    // 添加光源
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
     
